@@ -11,6 +11,8 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const connection = require('./config/db');
 
+const authRoute = require("./routes/authRoute");
+
 const app = express();
 
 app.set('views', path.join(__dirname, "views"));
@@ -31,8 +33,17 @@ app.use(session({
 
 app.use(flash());
 
+// routes
+
+app.use("/personnel", authRoute);
+
 app.get("/", function(req, res) {
-    res.render('accueil', { title:"home" }); 
+    if(req.session.loggedin){
+        res.render('accueil', { title:"home" }); 
+    } else {
+        res.redirect("/personnel/login");
+    }
+    
  });
 
 app.use(function (req, res, next) {
