@@ -5,9 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/fonts/fontawesome4/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>MAGESTI - <%= title %> </title>
 </head>
 <body>
+    <div class="navbar navbar-expand-sm <%=( matricule[0]+matricule[1] === "VB" ) ? "bg-primary":"bg-danger"  %> navbar-dark">
+        <div class="container-fluid">
+            <div class="row t">
+                <div class="col-md-2">
+                    <h3 class="text-white h"><a href="/" class="text-white">MAGESTI</a>&nbsp;&nbsp;|</h3>
+                </div>
+                <div class="col-md-9">
+                    <h6 class="text-white pt-2">KOMONE - <%=( matricule[0]+matricule[1] === "VB" ) ? "SERVICE COMMERCIAL EN LIGNE":"SERVICE CLIENTELE"  %> -- <%= matricule %> </h6> 
+                </div>
+                <div class="col-md-1">
+                    <div class="dropdown dropleft text-right">
+                        <img class="dropdown-toggle img-fluid profile-pic" data-toggle="dropdown" src="/images/avatar.png" alt="pic">
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
+                            <a class="dropdown-item" href="/personnel/logout"><i class=""></i> Se déconnecter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 menu">
+                <h3>MENU</h3>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Link</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-10">
         <%- include('./msgFlash.ejs') %> 

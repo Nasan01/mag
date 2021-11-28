@@ -7,3 +7,25 @@
     border-radius: 30%;
     margin-top: 30vh;
 }
+
+.t {
+    width: 150ch;
+}
+
+.h a:hover{
+    text-decoration: none;
+}
+
+.droite {
+    margin-right: 0;
+    margin-left: 80ch;
+}
+
+.profile-pic{
+    border-radius: 50%;
+    max-width: 50px;
+}
+
+.menu {
+    height: 80vh;
+}
