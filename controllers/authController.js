@@ -21,10 +21,10 @@ const authentication = (req, res) => {
             if(err) throw err;
             if(rows.length <= 0){
                 req.flash("error", "Mauvais matricule ou mot de passe");
-                res.redirect('/login');
+                res.redirect('/personnel/login');
             }else {
                 req.session.loggedin = true;
-                req.session.matricule = matricule_p;
+                req.session.matricule = matricule;
                 res.redirect('/');
             }
         }
@@ -34,7 +34,7 @@ const authentication = (req, res) => {
 const authLogout = (req, res) => {
     req.session.destroy();
     req.flash("success", "Connectez-vous ici!!");
-    res.redirect("/login");
+    res.redirect("/personnel/login");
 }
 
 module.exports = {

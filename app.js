@@ -39,7 +39,7 @@ app.use("/personnel", authRoute);
 
 app.get("/", function(req, res) {
     if(req.session.loggedin){
-        res.render('accueil', { title:"home" }); 
+        res.render('accueil', { title:"home", matricule: req.session.matricule }); 
     } else {
         res.redirect("/personnel/login");
     }

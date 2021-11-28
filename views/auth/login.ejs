@@ -11,16 +11,17 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-6 m-auto">
+            <div class="col-6 mt-4 m-auto">
                 <h2>Login</h2>
-                <form action="/authentication" method="post">
+                <%- include("../global/msgFlash.ejs") %> 
+                <form action="/personnel/authentication" method="post">
                     <div class="form-group">
-                        <input type="text" class="form-control" />
+                        <input type="text" name="matricule" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" />
+                        <input type="password" name="mdp" class="form-control" />
                     </div>
-                    <button class="btn btn-success" type="submit">connexion</button>
+                    <button class="btn btn-primary" type="submit">connexion</button>
                 </form>
             </div>
         </div>
