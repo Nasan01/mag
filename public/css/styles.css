@@ -1,0 +1,9 @@
+.back {
+    background: rgb(206, 188, 218);
+    height: 100vh;
+}
+
+.form-login {
+    border-radius: 30%;
+    margin-top: 30vh;
+}

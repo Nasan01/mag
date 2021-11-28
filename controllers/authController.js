@@ -32,8 +32,8 @@ const authentication = (req, res) => {
 }
 
 const authLogout = (req, res) => {
-    req.session.destroy();
     req.flash("success", "Connectez-vous ici!!");
+    req.session.destroy();
     res.redirect("/personnel/login");
 }
 
