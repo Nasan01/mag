@@ -12,6 +12,7 @@ const mysql = require('mysql');
 const connection = require('./config/db');
 
 const authRoute = require("./routes/authRoute");
+const { menu } = require("./config/helper");
 
 const app = express();
 
@@ -28,7 +29,7 @@ app.use(session({
     secret: "123456cat",
     resave: false,
     saveUninitialized: true,
-    cookie: {maxAge: 120000}
+    cookie: {maxAge: 240000}
 }));
 
 app.use(flash());
@@ -39,7 +40,8 @@ app.use("/personnel", authRoute);
 
 app.get("/", function(req, res) {
     if(req.session.loggedin){
-        res.render('accueil', { title:"home", matricule: req.session.matricule }); 
+        const menu_link = menu(req.session.matricule);
+        res.render('accueil', { title:"home", matricule: req.session.matricule, menu:menu_link }); 
     } else {
         res.redirect("/personnel/login");
     }

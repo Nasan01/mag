@@ -36,19 +36,12 @@
             <div class="col-2 menu">
                 <h3>MENU</h3>
                 <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Link</a>
-                    </li>
+                    <% menu.map((m) => { %> 
+                        <li class="nav-item">
+                            <a href="<%= m.link %> " class='nav-link <%= title == m.active && "active" %>'><i class="<%= m.icons %> "></i> <%= m.content %> </a>
+                        </li>
+                    <% }) %> 
                 </ul>
             </div>
             <div class="col-10">
-        <%- include('./msgFlash.ejs') %> 
+                <%- include('./msgFlash.ejs') %> 

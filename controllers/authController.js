@@ -26,7 +26,6 @@ const authentication = (req, res) => {
             req.session.matricule = matricule;
             res.redirect('/');
         }
-        console.log(rows);
     });
 }
 
