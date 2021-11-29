@@ -12,6 +12,7 @@ const mysql = require('mysql');
 const connection = require('./config/db');
 
 const authRoute = require("./routes/authRoute");
+const clientRoute = require("./routes/clientRoute");
 const { menu } = require("./config/helper");
 
 const app = express();
@@ -37,6 +38,7 @@ app.use(flash());
 // routes
 
 app.use("/personnel", authRoute);
+app.use("/clients", clientRoute);
 
 app.get("/", function(req, res) {
     if(req.session.loggedin){

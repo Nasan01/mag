@@ -10,7 +10,7 @@
     <title>MAGESTI - <%= title %> </title>
 </head>
 <body>
-    <div class="navbar navbar-expand-sm <%=( matricule[0]+matricule[1] === "VB" ) ? "bg-primary":"bg-danger"  %> navbar-dark">
+    <div class="navbar navbar-expand-sm fixed-top mb-4 <%=( matricule[0]+matricule[1] === "VB" ) ? "bg-primary":"bg-danger"  %> navbar-dark">
         <div class="container-fluid">
             <div class="row t">
                 <div class="col-md-2">
@@ -31,9 +31,9 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid margetop">
         <div class="row">
-            <div class="col-2 menu">
+            <div class="col-md-2 col-sm-12 menu">
                 <h3>MENU</h3>
                 <ul class="nav nav-pills flex-column">
                     <% menu.map((m) => { %> 
@@ -43,5 +43,5 @@
                     <% }) %> 
                 </ul>
             </div>
-            <div class="col-10">
+            <div class="col-md-10 col-sm-12">
                 <%- include('./msgFlash.ejs') %> 
