@@ -1,5 +1,6 @@
 const mysql = require("mysql");
 const connection = require("../config/db");
+const { login } = require("../models/authModel");
 
 const authLogin_get = (req, res) => {
 
@@ -14,21 +15,19 @@ const authLogin_get = (req, res) => {
 
 const authentication = (req, res) => {
     const { matricule, mdp } = req.body;
-    connection.query(
-        "SELECT * FROM personnel WHERE matricule_p = ? AND mdp_p = ?",
-        [matricule, mdp],
-        function (err, rows, fields) {
-            if(err) throw err;
-            if(rows.length <= 0){
-                req.flash("error", "Mauvais matricule ou mot de passe");
-                res.redirect('/personnel/login');
-            }else {
-                req.session.loggedin = true;
-                req.session.matricule = matricule;
-                res.redirect('/');
-            }
+    login(matricule, mdp, function (err, resul) {
+        if(err) throw err;
+        const [rows, fields] = resul;
+        if(rows.length <= 0){
+            req.flash("error", "Mauvais matricule ou mot de passe");
+            res.redirect('/personnel/login');
+        } else {
+            req.session.loggedin = true;
+            req.session.matricule = matricule;
+            res.redirect('/');
         }
-    )
+        console.log(rows);
+    });
 }
 
 const authLogout = (req, res) => {
