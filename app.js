@@ -13,6 +13,7 @@ const connection = require('./config/db');
 
 const authRoute = require("./routes/authRoute");
 const clientRoute = require("./routes/clientRoute");
+const produitRoute = require("./routes/produitRoute");
 const { menu } = require("./config/helper");
 
 const app = express();
@@ -39,6 +40,7 @@ app.use(flash());
 
 app.use("/personnel", authRoute);
 app.use("/clients", clientRoute);
+app.use("/produits", produitRoute);
 
 app.get("/", function(req, res) {
     if(req.session.loggedin){
