@@ -1,5 +1,6 @@
 const { menu } = require("../config/helper");
 const clientModel = require("../models/clientModel");
+const mysqlPromise = require("mysql2/promise");
 
 const get_count_client = async () => {
     let test = [];
@@ -11,20 +12,26 @@ const get_count_client = async () => {
     return test;
 }
 
-const get_all_client = (req, res) => {
+const get_all_client = async (req, res) => {
     const { id } = req.params;
     let nbr = 10, id_convert;
     id_convert = parseInt(id);
     let suivant = id_convert * nbr;
+    const connectionPromise = await mysqlPromise.createConnection({host:"localhost", user:"root", password:"", database: "magesti"})
     if(req.session.loggedin){
         const menu_link = menu(req.session.matricule);
-        clientModel.findWithLimit(suivant, nbr, function (err, clients) {
+        clientModel.findWithLimit(suivant, nbr, async function (err, clients) {
+            const [results, fields] = await connectionPromise.execute('SELECT count(*) as test FROM client');
+            console.log(results[0].test);
+            let page_count = results[0].test / nbr;
+            console.log(Math.round(page_count));
             res.render('client/index', { 
                 title:"clients", 
                 matricule: req.session.matricule, 
                 menu:menu_link,
                 clients: clients,
-                page_count: clients.length / nbr
+                page_count: Math.round(page_count),
+                id: id_convert
             });  
         });
     } else {
