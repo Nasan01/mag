@@ -61,6 +61,31 @@ const client_by_linkfb = (req, res) => {
     });
 }
 
+const add_client = (req, res) => {
+    const {
+        nom_c,
+        lienfb_c,
+        contact_c
+    } = req.body;
+    const menu_link = menu(req.session.matricule);
+    clientModel.addClient({
+        nom_c: nom_c,
+        code_client: "CMT-KOMONE-"+ new Date().getTime(),
+        lienfb_c: lienfb_c,
+        contact_c: contact_c,
+        ajouter_at: new Date(),
+        matricule_p: req.session.matricule
+    }, function (err, result) {
+        if(err) throw err;
+        res.render("tache/discussion", {
+            title: "taches",
+            matricule: req.session.matricule,
+            menu: menu_link
+        });
+        console.log("added");
+    })
+}
+
 const automateAddingClient = (req, res) => {
     for(let i = 0; i < 40; i++){
         clientModel.addClient({
@@ -81,5 +106,6 @@ const automateAddingClient = (req, res) => {
 module.exports = {
     get_all_client,
     automateAddingClient,
-    client_by_linkfb
+    client_by_linkfb,
+    add_client
 }
