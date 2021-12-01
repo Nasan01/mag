@@ -22,9 +22,7 @@ const get_all_client = async (req, res) => {
         const menu_link = menu(req.session.matricule);
         clientModel.findWithLimit(suivant, nbr, async function (err, clients) {
             const [results, fields] = await connectionPromise.execute('SELECT count(*) as test FROM client');
-            console.log(results[0].test);
             let page_count = results[0].test / nbr;
-            console.log(Math.round(page_count));
             res.render('client/index', { 
                 title:"clients", 
                 matricule: req.session.matricule, 
@@ -37,6 +35,30 @@ const get_all_client = async (req, res) => {
     } else {
         res.redirect("/personnel/login");
     }
+}
+
+const client_by_linkfb = (req, res) => {
+    const menu_link = menu(req.session.matricule);
+    const { lienfb_c } = req.body;
+    console.log(lienfb_c);
+    clientModel.findClientByLinkFb(lienfb_c, function (err, result) {
+        const [rows, results] = result;
+        console.log(rows);
+        if(err) throw err;
+        if(rows.length <= 0){
+            res.render("client/addNew", {
+                title: "taches",
+                matricule: req.session.matricule,
+                menu: menu_link
+            });
+        } else {
+            res.render("tache/discussion", {
+                title: "taches",
+                matricule: req.session.matricule,
+                menu: menu_link
+            });
+        }
+    });
 }
 
 const automateAddingClient = (req, res) => {
@@ -58,5 +80,6 @@ const automateAddingClient = (req, res) => {
 
 module.exports = {
     get_all_client,
-    automateAddingClient
+    automateAddingClient,
+    client_by_linkfb
 }

@@ -24,6 +24,17 @@ const countAllClient = () => {
     
 }
 
+const findClientByLinkFb = (linkfb, cb) => {
+    connection.query(
+        "SELECT * FROM client WHERE lienfb_c LIKE ?",
+        [linkfb],
+        (err, res, rows) => {
+            if(err) throw err;
+            cb(null, [res, rows]);
+        }
+    )
+}
+
 const addClient = (client, cb) => {
     connection.query(
         "INSERT INTO client SET ?",
@@ -38,5 +49,6 @@ const addClient = (client, cb) => {
 module.exports = {
     findWithLimit,
     addClient,
-    countAllClient
+    countAllClient,
+    findClientByLinkFb
 }

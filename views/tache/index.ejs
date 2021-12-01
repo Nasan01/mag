@@ -1,0 +1,66 @@
+<%- include("../global/header.ejs") %> 
+<div class="row">
+    <div class="col">
+        <div>
+            <h1 class="text-primary">Taches </h1>
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-8 m-auto">
+                                <div class="form-group">
+                                    <label for="page">Page ou Compte</label>
+                                    <select class="form-control" id="sel1" name="page_compte">
+                                        <option>KOMONE-PAGE</option>
+                                        <option>COMPTE-FACEBOOK-OPLG</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="code_produit">Code produit</label>
+                                            <input type="text" class="form-control" id="page" name="code_produit" />
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="nom_produit">Nom produit</label>
+                                            <input type="text" class="form-control" id="page" name="nom_produit" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-right">
+                                    <button type="button" class="btn btn-success checkClientModal">valider</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal" id="checkClientModal">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h4 class="modal-title text-white">Modal Heading</h4>
+                        <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/clients/check" method="post">
+                            <div class="input-group mb-3">
+                                <input type="text" name="lienfb_c"  id="lienfb_c" class="form-control" placeholder="Lien Facebook" required>
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-success">Verifier</button>
+                                </div>                     
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include("../global/footer.ejs") %> 

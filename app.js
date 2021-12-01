@@ -7,6 +7,7 @@ const {body, validationResult} = require("express-validator");
 const flash = require("express-flash");
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const cors = require("cors");
 
 const mysql = require('mysql');
 const connection = require('./config/db');
@@ -14,6 +15,7 @@ const connection = require('./config/db');
 const authRoute = require("./routes/authRoute");
 const clientRoute = require("./routes/clientRoute");
 const produitRoute = require("./routes/produitRoute");
+const tacheRoute = require("./routes/tacheRoute");
 const { menu } = require("./config/helper");
 
 const app = express();
@@ -21,6 +23,12 @@ const app = express();
 app.set('views', path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+const corsOption = {
+    origin: "http://localhost:5000",
+    optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOption));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -41,6 +49,7 @@ app.use(flash());
 app.use("/personnel", authRoute);
 app.use("/clients", clientRoute);
 app.use("/produits", produitRoute);
+app.use("/taches", tacheRoute);
 
 app.get("/", function(req, res) {
     if(req.session.loggedin){
