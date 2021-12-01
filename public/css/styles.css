@@ -37,3 +37,26 @@
 .back-col{
     background: rgb(160, 160, 160);
 }
+
+.discussion-left{
+    height: 80vh;
+    border: 1px solid #000;
+}
+
+.discussion-right{
+    height: 80vh;
+    border: 1px solid #000;
+    overflow: scroll;
+}
+
+.img-l{
+    margin-right: 70px;
+}
+
+.img-r{
+    margin-left: 70px;
+}
+
+.cont-middle{
+    margin-top: 20vh;
+}

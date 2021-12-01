@@ -37,25 +37,24 @@ const get_all_client = async (req, res) => {
     }
 }
 
-const client_by_linkfb = (req, res) => {
+const client_by_linkfb = (req, response) => {
     const menu_link = menu(req.session.matricule);
     const { lienfb_c } = req.body;
-    console.log(lienfb_c);
-    clientModel.findClientByLinkFb(lienfb_c, function (err, result) {
-        const [rows, results] = result;
-        console.log(rows);
+    clientModel.findClientByLinkFb(lienfb_c, function (err, client) {
+        console.log(client);
         if(err) throw err;
-        if(rows.length <= 0){
-            res.render("client/addNew", {
+        if(client.length <= 0){
+            response.render("client/addNew", {
                 title: "taches",
                 matricule: req.session.matricule,
                 menu: menu_link
             });
         } else {
-            res.render("tache/discussion", {
+            response.render("tache/discussion", {
                 title: "taches",
                 matricule: req.session.matricule,
-                menu: menu_link
+                menu: menu_link,
+                clientsss: client
             });
         }
     });

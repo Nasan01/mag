@@ -13,4 +13,10 @@ $(document).ready(function () {
             
         });
     })*/
+    $(".client").on("click", function (e) {
+        globalToSend = "client";
+    });
+    $(".oplg").on("click", function (e) {
+        globalToSend = "oplg";
+    });
 });

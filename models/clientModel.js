@@ -30,7 +30,7 @@ const findClientByLinkFb = (linkfb, cb) => {
         [linkfb],
         (err, res, rows) => {
             if(err) throw err;
-            cb(null, [res, rows]);
+            cb(null, res);
         }
     )
 }

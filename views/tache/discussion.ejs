@@ -1,1 +1,41 @@
-<h1>Discussion</h1>
+<%- include("../global/header.ejs") %> 
+<div class="row">
+    <div class="col">
+        <div>
+            <h1>Discussions</h1>
+            <div class="row m-4">
+                <div class="col-4 discussion-left">
+                    <div class="card cont-middle">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <select class="form-control" id="sel1" name="sender">
+                                        <option value="client">Client - <%= clientsss[0].code_client %> </option>
+                                        <option value=<%= matricule %> ><%= matricule %></option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <textarea name="content" id="content" class="form-control" cols="10" rows="6"></textarea>
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-primary envoyer"><i class="fa fa-send-o"></i></button>
+                                    </div>                     
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 discussion-right">
+
+                </div>
+            </div>
+            <div class="row m-4">
+                <div class="col">
+                    <div class="text-right">
+                        <button type="button" class="btn btn-success btn-lg">CONCLURE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include("../global/footer.ejs") %> 
