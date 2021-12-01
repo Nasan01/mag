@@ -60,3 +60,19 @@
 .cont-middle{
     margin-top: 20vh;
 }
+
+.client, .oplg{
+    max-width: 300px;
+    height: auto;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.oplg{
+    margin-left: 350px;
+}
+
+.i{
+    font-size: 10px;
+    color: #666;
+}

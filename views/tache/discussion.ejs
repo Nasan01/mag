@@ -2,18 +2,23 @@
 <div class="row">
     <div class="col">
         <div>
-            <h1>Discussions</h1>
-            <div class="row m-4">
+            <div class="card mr-4 ml-4">
+                <div class="card-body">
+                    <h2>Discussions avec le client <%= clientsss[0].code_client %></h2>
+                </div>
+            </div>
+            <div class="row ml-4 mr-4 mb-4">
                 <div class="col-4 discussion-left">
                     <div class="card cont-middle">
                         <div class="card-body">
                             <form>
                                 <div class="form-group">
-                                    <select class="form-control" id="sel1" name="sender">
-                                        <option value="client">Client - <%= clientsss[0].code_client %> </option>
-                                        <option value=<%= matricule %> ><%= matricule %></option>
+                                    <select class="form-control" id="code" name="code">
+                                        <option value="0">Client - <%= clientsss[0].code_client %> </option>
+                                        <option value="1" ><%= matricule %></option>
                                     </select>
                                 </div>
+                                <input type="hidden" name="receiver" id="receiver" value="<%= clientsss[0].code_client %>" />
                                 <div class="input-group mb-3">
                                     <textarea name="content" id="content" class="form-control" cols="10" rows="6"></textarea>
                                     <div class="input-group-append">
@@ -25,7 +30,18 @@
                     </div>
                 </div>
                 <div class="col-8 discussion-right">
-
+                    <div class="discussion">
+                        <div class="row">
+                            <div class="col">
+                                <% contents.map((row) => { %>
+                                    <div class="<%= row.code == 0 ? 'client alert alert-secondary text-left' : 'oplg  text-right alert alert-primary' %> ">
+                                        <p><%- row.content %></p>
+                                    </div><% let test = parseInt(new Date(row.send_at).getMonth()) + 1 %> 
+                                    <i class="i <%= row.code == 0 ? 'text-left' : 'oplg text-right' %> ">envoyé le <%= new Date(row.send_at).getDate() + "-" +test+ "-" + new Date(row.send_at).getFullYear() %> -- <%= row.send_time_at %> </i>
+                                <% }) %> 
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row m-4">

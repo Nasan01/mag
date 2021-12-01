@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col">
+        <% contents.map((row) => { %>
+            <div class="<%= row.code == 0 ? 'client alert alert-secondary text-left' : 'oplg  text-right alert alert-primary' %> ">
+                <p><%- row.content %></p>
+            </div><% let test = parseInt(new Date(row.send_at).getMonth()) + 1 %> 
+            <i class="i <%= row.code == 0 ? 'text-left' : 'oplg text-right' %> ">envoyé le <%= new Date(row.send_at).getDate() + "-" +test+ "-" + new Date(row.send_at).getFullYear() %> -- <%= row.send_time_at %> </i>
+        <% }) %> 
+    </div>
+</div>

@@ -13,10 +13,20 @@ $(document).ready(function () {
             
         });
     })*/
-    $(".client").on("click", function (e) {
-        globalToSend = "client";
-    });
-    $(".oplg").on("click", function (e) {
-        globalToSend = "oplg";
+    $(".envoyer").on("click", function (e) {
+        e.preventDefault();
+        let code = $("#code option:selected").val();
+        let receiver = $("#receiver").val();
+        let content = $("#content").val();
+        $.post(base_url+"/discussions/add", {
+            code: code,
+            receiver: receiver,
+            content: content
+        }, function (status) {
+            
+        });
+        $.get(base_url+"/discussions/"+receiver, function (data) {
+            $(".discussion").empty().append(data);
+        });
     });
 });

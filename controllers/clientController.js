@@ -37,11 +37,14 @@ const get_all_client = async (req, res) => {
     }
 }
 
-const client_by_linkfb = (req, response) => {
+const client_by_linkfb = async (req, response) => {
     const menu_link = menu(req.session.matricule);
     const { lienfb_c } = req.body;
+    const connectionPromise = await mysqlPromise.createConnection({host:"localhost", user:"root", password:"", database: "magesti"});
+    const [results] = await connectionPromise.execute(
+        "SELECT discussion.content, discussion.send_time_at, discussion.send_at, discussion.code FROM client JOIN discussion ON client.code_client = discussion.receiver WHERE client.lienfb_c = ?", [lienfb_c]
+    );
     clientModel.findClientByLinkFb(lienfb_c, function (err, client) {
-        console.log(client);
         if(err) throw err;
         if(client.length <= 0){
             response.render("client/addNew", {
@@ -54,22 +57,28 @@ const client_by_linkfb = (req, response) => {
                 title: "taches",
                 matricule: req.session.matricule,
                 menu: menu_link,
-                clientsss: client
+                clientsss: client,
+                contents: results
             });
         }
     });
 }
 
-const add_client = (req, res) => {
+const add_client = async (req, res) => {
     const {
         nom_c,
         lienfb_c,
         contact_c
     } = req.body;
     const menu_link = menu(req.session.matricule);
+    const code_client = "CMT-KOMONE-"+ new Date().getTime();
+    const connectionPromise = await mysqlPromise.createConnection({host:"localhost", user:"root", password:"", database: "magesti"});
+    const [results] = await connectionPromise.execute(
+        "SELECT discussion.content, discussion.send_time_at, discussion.send_at, discussion.code FROM client JOIN discussion ON client.code_client = discussion.receiver WHERE client.lienfb_c = ?", [lienfb_c]
+    );
     clientModel.addClient({
         nom_c: nom_c,
-        code_client: "CMT-KOMONE-"+ new Date().getTime(),
+        code_client: code_client,
         lienfb_c: lienfb_c,
         contact_c: contact_c,
         ajouter_at: new Date(),
@@ -79,7 +88,9 @@ const add_client = (req, res) => {
         res.render("tache/discussion", {
             title: "taches",
             matricule: req.session.matricule,
-            menu: menu_link
+            menu: menu_link,
+            clientsss: [{code_client:code_client}],
+            contents: results
         });
         console.log("added");
     })
