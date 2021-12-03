@@ -11,6 +11,18 @@ const addCommandeProduit = (commande, cb) => {
     );
 }
 
+const addCommande = (commande, cb) => {
+    connection.query(
+        "INSERT INTO commande SET ?",
+        commande,
+        function (err, res) {
+            if(err) throw err;
+            cb(null, res);
+        }
+    );
+}
+
 module.exports = {
-    addCommandeProduit
+    addCommandeProduit,
+    addCommande
 }

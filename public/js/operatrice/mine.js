@@ -49,4 +49,18 @@ $(document).ready(function () {
         $("#quantite").val("");
         $("#nom_prouit").val("");
     });
+
+    $('.conclu').on("click", function (e) {
+        e.preventDefault();
+        let com_livr = $("#com_livr").val();
+        let code_client = $('#code_client').val();
+        $.post(base_url+"/commandes/addCommande", {
+            com_livr: com_livr,
+            code_client: code_client
+        }, function (data) {
+            if(data){
+                console.log("commande added");
+            }
+        });
+    });
 });

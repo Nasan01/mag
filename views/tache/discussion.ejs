@@ -63,9 +63,10 @@
                     <div class="modal-body">
                         <form>
                             <input type="hidden" name="com_livr" id="com_livr" value="<%= com_livr %>" />
+                            <input type="hidden" name="code_client" id="code_client" value="<%= clientsss[0].code_client %>" />
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>Commande</h4>
+                                    <h4>Produit</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -98,7 +99,49 @@
                                     <h4>Livraison</h4>
                                 </div>
                                 <div class="card-body">
-                                    
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="heure_debut">Heure Début : </label>
+                                                <input type="time" name="heure_debut" id="heure_debut" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="heure_debut">Heure Fin : </label>
+                                                <input type="time" name="heure_debut" id="heure_debut" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="date_livraison">Date : </label>
+                                                <input type="date" name="date_livraison" id="date_livraison" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="endroit">Endroit : </label>
+                                                <input type="text" name="endroit" id="endroit" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="remarque">Remarque : </label>
+                                                <textarea name="remarque" id="remarque" class="form-control"  rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="form-group text-right">
+                                        <button type="button" class="btn btn-success btn-lg conclu">Conclu</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
