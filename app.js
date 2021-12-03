@@ -18,6 +18,7 @@ const produitRoute = require("./routes/produitRoute");
 const tacheRoute = require("./routes/tacheRoute");
 const discussionRoute = require("./routes/discussionRoute");
 const commandeRoute = require("./routes/commandeRoute");
+const livraisonRoute = require("./routes/livraisonRoute");
 const { menu } = require("./config/helper");
 
 const app = express();
@@ -54,6 +55,7 @@ app.use("/produits", produitRoute);
 app.use("/taches", tacheRoute);
 app.use("/discussions", discussionRoute);
 app.use("/commandes", commandeRoute);
+app.use("/livraisons", livraisonRoute);
 
 app.get("/", function(req, res) {
     if(req.session.loggedin){

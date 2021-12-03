@@ -54,6 +54,11 @@ $(document).ready(function () {
         e.preventDefault();
         let com_livr = $("#com_livr").val();
         let code_client = $('#code_client').val();
+        let heure_debut = $("#heure_debut").val();
+        let heure_fin = $("#heure_fin").val();
+        let date_livraison = $("#date_livraison").val();
+        let endroit = $("#endroit").val();
+        let remarque = $("#remarque").val();
         $.post(base_url+"/commandes/addCommande", {
             com_livr: com_livr,
             code_client: code_client
@@ -61,6 +66,16 @@ $(document).ready(function () {
             if(data){
                 console.log("commande added");
             }
+        });
+        $.post(base_url+"/livraisons/addLivraison", {
+            com_livr:com_livr,
+            heure_debut: heure_debut,
+            heure_fin: heure_fin,
+            date_livraison: date_livraison,
+            endroit: endroit,
+            remarque: remarque
+        }, function (data) {
+            if(data) console.log("livraison added");
         });
     });
 });
