@@ -66,6 +66,7 @@
     height: auto;
     border-radius: 15px;
     padding: 1rem;
+    overflow: clip;
 }
 
 .oplg{

@@ -34,7 +34,7 @@
                         <div class="row">
                             <div class="col">
                                 <% contents.map((row) => { %>
-                                    <div class="<%= row.code == 0 ? 'client alert alert-secondary text-left' : 'oplg  text-right alert alert-primary' %> ">
+                                    <div class="<%= row.code == 0 ? 'client alert alert-secondary text-justify' : 'oplg  text-right alert alert-primary text-justify' %> ">
                                         <p><%- row.content %></p>
                                     </div><% let test = parseInt(new Date(row.send_at).getMonth()) + 1 %> 
                                     <i class="i <%= row.code == 0 ? 'text-left' : 'oplg text-right' %> ">envoyé le <%= new Date(row.send_at).getDate() + "-" +test+ "-" + new Date(row.send_at).getFullYear() %> -- <%= row.send_time_at %> </i>
@@ -47,7 +47,84 @@
             <div class="row m-4">
                 <div class="col">
                     <div class="text-right">
-                        <button type="button" class="btn btn-success btn-lg">CONCLURE</button>
+                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalConclure">CONCLURE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% let com_livr = "com_livr_"+new Date().getTime() %> 
+        <div class="modal fade" id="modalConclure">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h4 class="modal-title text-white">Conclure <%= com_livr %> </h4>
+                        <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <input type="hidden" name="com_livr" id="com_livr" value="<%= com_livr %>" />
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Commande</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="produit">Code produit : </label>
+                                                <input type="text" name="code_produit" id="code_produit" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="produit">Nom produit : </label>
+                                                <input type="text" name="nom_produit" id="nom_produit" class="form-control" disabled/>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="form-group">
+                                                <label for="qt_produit">Quantité : </label>
+                                                <input type="number" name="quantite" id="quantite" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-2 pt-4">
+                                            <button type="button" class="btn btn-secondary addProduit"><i class="fa fa-plus-circle"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Livraison</h4>
+                                </div>
+                                <div class="card-body">
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="modal fade" id="modalConfirm">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Alert</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            Commande Produit Ajouter
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary okAdded" data-dismiss="modal">OK</button>
+                            <button type="button" class="btn btn-secondary okDelete" data-dismiss="modal">Close</button>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

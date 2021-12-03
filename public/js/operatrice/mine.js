@@ -29,4 +29,24 @@ $(document).ready(function () {
             $(".discussion").empty().append(data);
         });
     });
+    $(".addProduit").on("click", function (e) {
+        e.preventDefault();
+        let com_livr = $("#com_livr").val();
+        let code_produit = $("#code_produit").val();
+        let quantite = $("#quantite").val();
+        $.post(base_url+"/commandes/addProduitCommande", {
+            com_livr: com_livr,
+            code_produit: code_produit,
+            quantite, quantite
+        }, function (data) {
+            if(data){
+                $("#modalConfirm").modal();
+            }
+        });
+    });
+    $('.okAdded').on('click', function(e){
+        $("#code_produit").val("");
+        $("#quantite").val("");
+        $("#nom_prouit").val("");
+    });
 });

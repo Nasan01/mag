@@ -35,7 +35,8 @@ const automateAddingProduit = (req, res) => {
             nom_produit: "DEO-TEST-"+i,
             photo_produit: "PRO0" + co,
             description_produit: "Déodorant TROS ROLL ON WHITENING PROTECT "+i+i,
-            moded_emploi_produit: "Déodorant TROS ROLL ON WHITENING PROTECT soigne la peau délicate de vos aisselles en lui  permettant d’avoir qui  une sensation de fraîcheur toute la journée. TROS WHITENING PROTECT réduit les taches sombre  et éclaircit la peau des aisselles ."+i
+            moded_emploi_produit: "Déodorant TROS ROLL ON WHITENING PROTECT soigne la peau délicate de vos aisselles en lui  permettant d’avoir qui  une sensation de fraîcheur toute la journée. TROS WHITENING PROTECT réduit les taches sombre  et éclaircit la peau des aisselles ."+i,
+            prix: Math.round(Math.random()*10000)
         }, function (err, results) {
             console.log("OK--"+i);
         });
