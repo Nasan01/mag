@@ -40,7 +40,10 @@ $(document).ready(function () {
             quantite, quantite
         }, function (data) {
             if(data){
-                $("#modalConfirm").modal();
+                // $("#modalConfirm").modal();
+                $("#code_produit").val("");
+                $("#quantite").val("");
+                $("#nom_prouit").val("");
             }
         });
     });
@@ -76,6 +79,19 @@ $(document).ready(function () {
             remarque: remarque
         }, function (data) {
             if(data) console.log("livraison added");
+            let receiver = $("#receiver").val();
+            $.post(base_url+"/discussions/addRahaFintinina", {
+                com_livr: com_livr,
+                receiver: receiver
+            }, function (data) {
+                if(data) console.log("Raha fintinina added!!");
+                $.get(base_url+"/discussions/"+receiver, function (data) {
+                    $(".discussion").empty().append(data);
+                });
+                $("#modalConclure").modal('hide');
+                window.location.href = base_url+"/taches";
+            });
         });
     });
+    $('[data-toggle="popover"]').popover(); 
 });

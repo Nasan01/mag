@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <% let com_livr = "com_livr_"+new Date().getTime() %> 
+        <% let com_livr = "com_livr_"+new Date().getTime()+Math.round(Math.random()*1000) %> 
         <div class="modal fade" id="modalConclure">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -89,7 +89,7 @@
                                             </div>
                                         </div>
                                         <div class="col-2 pt-4">
-                                            <button type="button" class="btn btn-secondary addProduit"><i class="fa fa-plus-circle"></i></button>
+                                            <button type="button" data-toggle="popover" title="Confirmation" data-content="Commande ajouter! vous pouvez ajouter un autre produit" class="btn btn-danger addProduit"><i class="fa fa-plus-circle"></i></button>
                                         </div>
                                     </div>
                                 </div>
