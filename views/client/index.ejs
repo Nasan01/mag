@@ -3,6 +3,9 @@
     <div class="col">
         <div>
             <h1>Listes des clients</h1>
+            <div class="form-group">
+                <input type="text" id="filterClient" class="form-control" placeholder="Filtrer le tableau"/>
+            </div>
             <table class="table table-striped">
                 <thead class="bg-primary text-white">
                     <th>id</th>
@@ -12,7 +15,7 @@
                     <th>contact</th>
                     <th></th>
                 </thead>
-                <tbody>
+                <tbody id="tabClient">
                     <% clients.map((client) => { %>
                         <tr>
                             <td><%= client.id_c %> </td>

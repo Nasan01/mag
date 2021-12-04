@@ -94,4 +94,16 @@ $(document).ready(function () {
         });
     });
     $('[data-toggle="popover"]').popover(); 
+    $("#filterClient").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#tabClient tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        }); 
+    });
+    $("#filterProduit").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#tabProduit tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        }); 
+    });
 });

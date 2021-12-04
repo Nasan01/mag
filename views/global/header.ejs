@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-md-2 col-sm-12 menu">
                 <h3>MENU</h3>
-                <ul class="nav nav-pills flex-column">
+                <ul class="nav nav-pills flex-column" data-spy="affix" data-offset-top="75">
                     <% menu.map((m) => { %> 
                         <li class="nav-item">
                             <a href="<%= m.link %> " class='nav-link <%= title == m.active && "active" %>'><i class="<%= m.icons %> "></i> <%= m.content %> </a>

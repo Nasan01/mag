@@ -3,6 +3,9 @@
     <div class="col">
         <div>
             <h1>Listes des <%= title %> </h1>
+            <div class="form-group">
+                <input type="text" id="filterProduit" class="form-control" placeholder="Filtrer le tableau"/>
+            </div>
             <table class="table table-striped">
                 <thead class="bg-primary text-white">
                     <th>id</th>
@@ -12,7 +15,7 @@
                     <th>description</th>
                     <th></th>
                 </thead>
-                <tbody>
+                <tbody id="tabProduit">
                     <% produits.map((produit) => { %>
                         <tr>
                             <td><%= produit.id_produit %> </td>
