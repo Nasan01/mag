@@ -1,0 +1,32 @@
+<%- include("../global/header.ejs") %> 
+<div class="row">
+    <div class="col">
+        <div class="full-w">
+
+        </div>
+        <div class="card bg-dark">
+            <div class="card-body">
+                <p class="card-text text-white">Etat de vente du : <%= date_du_jour %></p> 
+            </div>
+        </div>
+        <div class="row mt-3 mb-3">
+            <div class="col-6">
+                <div class="card bg-success">
+                    <div class="card-body text-white">
+                        <h3><i class="fa fa-money"></i> Chiffres d'affaires du jour : </h3>
+                        <p class="card-text"><%= totalCa %>  Ariary</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card bg-primary">
+                    <div class="card-body text-white">
+                        <h3><i class="fa fa-cubes"></i> Produits vendu : </h3>
+                        <p class="card-text"><%= quantite %> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include("../global/footer.ejs") %> 

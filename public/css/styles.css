@@ -77,3 +77,9 @@
     font-size: 10px;
     color: #666;
 }
+
+.full-w{
+    background: url("/images/streetart.jpg");
+    background-size: cover;
+    height: 65vh;
+}
