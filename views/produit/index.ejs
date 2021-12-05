@@ -7,7 +7,7 @@
                 <input type="text" id="filterProduit" class="form-control" placeholder="Filtrer le tableau"/>
             </div>
             <table class="table table-striped">
-                <thead class="bg-primary text-white">
+                <thead class="<%= matricule[0]+matricule[1] === "VB" ? "bg-primary" : "bg-warning" %> text-white">
                     <th>id</th>
                     <th>Nom</th>
                     <th>code produit</th>
@@ -23,7 +23,7 @@
                             <td><%= produit.code_produit %> </td>
                             <td class="text-center"><%= produit.prix %> </td>
                             <td><%= produit.description_produit %> </td>
-                            <td><a href="#" class="btn btn-primary"><i class="fa fa-info"></i></a></td>
+                            <td><a href="#" class="btn <%= matricule[0]+matricule[1] === "VB" ? "btn-primary" : "btn-warning" %>"><i class="fa fa-info"></i></a></td>
                         </tr>
                     <% }) %>  
                 </tbody>

@@ -13,11 +13,19 @@
                 </div>
             </div>
             <div class="col-3">
+                <% if (matricule[0]+matricule[1] === "VB") { %> 
                 <div class="card bg-default">
                     <div class="card-header border-warning">
                         <h3><a href="/taches" class="text-warning card-link"><i class="fa fa-tasks"></i> Taches</a></h3>
                     </div>
                 </div>
+                <% } else { %>
+                    <div class="card bg-default">
+                        <div class="card-header border-warning">
+                            <h3><a href="/livraisons" class="text-warning card-link"><i class="fa fa-car"></i> Taches</a></h3>
+                        </div>
+                    </div>
+                <% } %> 
             </div>
             <div class="col-3">
                 <div class="card bg-default">
@@ -27,11 +35,20 @@
                 </div>
             </div>
             <div class="col-3">
+                <% if (matricule[0]+matricule[1] === "VB") { %> 
                 <div class="card">
                     <div class="card-header bg-default border-danger">
                         <h3></i><a href="/etatVente" class="text-danger card-link"><i class="fa fa-money"></i> Etat de vente</a></h3>
                     </div>
                 </div>
+                <% } else { %>
+                    <div class="card">
+                        <div class="card-header bg-default border-danger">
+                            <h3></i><a href="/etatLivraison" class="text-danger card-link"><i class="fa fa-truck"></i> Etat de livraison</a></h3>
+                        </div>
+                    </div>
+                <% } %> 
+
             </div>
         </div>
     </div>
