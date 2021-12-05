@@ -1,0 +1,53 @@
+<%- include("../global/header.ejs") %> 
+<div class="row">
+    <div class="col">
+        <h3 class="text-warning">Livraisons</h3>
+        <div class="row">
+            <div class="col-3 clk">
+                <div class="card bg-success text-white">
+                    <div class="card-header">
+                        <h6>Livrer</h6>
+                    </div>
+                    <div class="card-body">
+                        Chiffre d'affaires : <%= livre[0] %>  Ariary <br>
+                        Produits : <%= livre[1] %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 clk">
+                <div class="card bg-primary text-white">
+                    <div class="card-header">
+                        <h6>En Attente</h6>
+                    </div>
+                    <div class="card-body">
+                        Chiffre d'affaires : <%= en_attente[0] %> Ariary <br>
+                        Produits : <%= en_attente[1] %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 clk">
+                <div class="card bg-warning text-white">
+                    <div class="card-header">
+                        <h6>Reporter</h6>
+                    </div>
+                    <div class="card-body">
+                        Chiffre d'affaires : <%= reporte[0] %> Ariary <br>
+                        Produits : <%= reporte[1] %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 clk">
+                <div class="card bg-danger text-white">
+                    <div class="card-header">
+                        <h6>Annuler</h6>
+                    </div>
+                    <div class="card-body">
+                        Chiffre d'affaires : <%= annule[0] %> Ariary <br>
+                        Produits : <%= annule[1] %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include("../global/footer.ejs") %> 

@@ -10,7 +10,7 @@ const menu = (matricule) => {
         const scMenu = [
             {link: "/", content: "Accueil", icons: "fa fa-home", active: "home"},
             {link: "/clients/0", content: "Clients", icons: "fa fa-users", active: "clients"},
-            {link: "/livraisons", content: "Tache", icons: "fa fa-car", active: "livraison"},
+            {link: "/livraisons", content: "Tache", icons: "fa fa-car", active: "livraisons"},
             {link: "/produits/0", content: "Produits", icons: "fa fa-cubes", active: "produits"},
             {link: "/etatLivraison", content: "Etat de Livraison", icons: "fa fa-truck", active: "money"},
         ];

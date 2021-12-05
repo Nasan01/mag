@@ -87,3 +87,7 @@
 .quick-link{
     margin-top: -3em;
 }
+
+.clk:hover{
+    cursor: pointer;
+}
