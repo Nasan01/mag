@@ -48,6 +48,32 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col addTab">
+                <table class="table table-striped mt-4">
+                    <thead class="bg-primary text-white">
+                        <th>Nom</th>
+                        <th>Contact</th>
+                        <th>Livrer à</th>
+                        <th>Produit</th>
+                        <th>Quantité</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <% livraisons.map((l) => { %>
+                            <tr>
+                                <td><%= l.nom_c %> </td>
+                                <td><%= l.contact_c %> </td>
+                                <td><%= l.endroit %> </td>
+                                <td><%= l.code_produit %></td>
+                                <td><%= l.quantite %> </td>
+                                <td><a href="#" class="btn btn-primary">Traiter</a></td>
+                            </tr>
+                        <% }) %>  
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 <%- include("../global/footer.ejs") %> 

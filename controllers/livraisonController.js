@@ -70,7 +70,6 @@ const get_view_livraison = async (req, res) => {
         });
 
         livraisonModel.findLivraison(date_now, "en_attente", function (err, livraisons) {
-            console.log(livraisons);
             res.render("livraison/index", {
                 title: "livraisons",
                 matricule: req.session.matricule,
@@ -89,10 +88,43 @@ const get_view_livraison = async (req, res) => {
 }
 
 const list_post_livraison = (req, res) => {
-
+    const { status } = req.body;
+    let month = parseInt(new Date().getMonth()) + 1;
+    const date_now = new Date().getFullYear() + "-" + month + "-" + new Date().getDate();
+    let bgColor = "", btnColor = "";
+    switch (status) {
+        case "en_attente":
+            bgColor = "bg-primary";
+            btnColor = "btn btn-primary";
+            break;
+        case "livre":
+            bgColor = "bg-success";
+            btnColor = "btn btn-success";
+            break;
+        case "reporte":
+            bgColor = "bg-warning";
+            btnColor = "btn btn-warning";
+            break;
+        case "annule":
+            bgColor = "bg-danger";
+            btnColor = "btn btn-danger";
+        break;
+    
+        default:
+            break;
+    }
+    livraisonModel.findLivraison(date_now, status, function (err, livraisons) {
+        res.render("livraison/tabLivraison", {
+            matricule: req.session.matricule,
+            livraisons: livraisons,
+            color: [bgColor, btnColor],
+            status: status
+        });
+    });
 }
 
 module.exports = {
     addLivraison,
-    get_view_livraison
+    get_view_livraison,
+    list_post_livraison
 }
