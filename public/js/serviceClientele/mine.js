@@ -28,4 +28,17 @@ $(document).ready(function () {
                 break;
         }
     });
+    $("#status").on("change", function () {
+        var chk = $(this);
+        if(chk.val() == "livre") {
+            $('#date_livraison_reporte').attr("disabled", "disabled");
+            $("#motif").attr("disabled", "disabled");
+        } else if(chk.val() == "annule") {
+            $('#date_livraison_reporte').attr("disabled", "disabled");
+            $("#motif").removeAttr("disabled");
+        } else {
+            $('#date_livraison_reporte').removeAttr("disabled");
+            $("#motif").removeAttr("disabled");
+        }
+    });
 });

@@ -1,0 +1,88 @@
+<%- include("../global/header.ejs") %> 
+<% let test_c = parseInt(new Date(livraisons[0].date_commande).getMonth()) + 1 %>
+<% let test_l = parseInt(new Date(livraisons[0].date_livraison).getMonth()) + 1 %>
+<div class="row">
+    <div class="col">
+        <h2 class="text-warning"><b>Nom Client : <%= livraisons[0].nom_c %> | code: <%= livraisons[0].code_client %> | contact : <%= livraisons[0].contact_c %></b></h2>
+        <div class="row m-3">
+            <div class="col-6 text-center border pt-1">
+                Date du commande : <%= new Date(livraisons[0].date_commande).getDate() + "-" +test_c+ "-" + new Date(livraisons[0].date_commande).getFullYear() %><br>
+            </div>
+            <div class="col-6 border text-center pt-1">
+                <p>OPLG chargé du vente : <i class="text-white bg-warning pt-1 pb-2 border border-light"> <b><%= livraisons[0].matricule %> </b></i></p>
+            </div>
+        </div>
+        <div class="card m-3">
+            <div class="card-header">
+                <h4>Détails livraisons</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3">
+                        Livrer à : <%= livraisons[0].endroit %> 
+                    </div>
+                    <div class="col-3">
+                        le : <%= new Date(livraisons[0].date_livraison).getDate() + "-" +test_l+ "-" + new Date(livraisons[0].date_livraison).getFullYear() %>
+                    </div>
+                    <div class="col-3">
+                        Entre : <%= livraisons[0].heure_debut %> à  <%= livraisons[0].heure_fin %>
+                    </div>
+                    <div class="col-3">
+                        Remarque: <%= livraisons[0].remarque %> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card m-3">
+            <div class="card-header">
+                <h4>Produit à Livrer</h4>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <% livraisons.map((l) => { %>
+                        <li class="list-group-item list-group-item-warning text-dark">
+                            produits : <b><%= l.nom_produit %></b> avec quantité de <b><%= l.quantite %></b>  
+                        </li>
+                    <% }) %>  
+                    <li class="list-group-item">Total à payer : <b><%= totalCa %></b> Ariary</li>
+                </ul>
+            </div>
+        </div>
+        <% if(statusCheck === "en_attente") { %> 
+        <div class="card m-3">
+            <div class="card-header">
+                <h4>Traitements</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6 m-auto">
+                        <form action="/livraisons/updateLivraison" method="post">
+                            <div class="form-group">
+                                <input type="hidden" name="id_livraison" id="id_livraison" value="<%= livraisons[0].id_livraison %> " class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Action :</label>
+                                <select name="status" id="status" class="form-control">
+                                    <option value="livre">Livrer</option>
+                                    <option value="reporte">Reporter</option>
+                                    <option value="annule">Annuler</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date_livraison_reporte">Reporter le</label>
+                                <input type="date" name="date_livraison_reporte" id="date_livraison_reporte" class="form-control" disabled="disabled" />
+                            </div>
+                            <div class="form-group">
+                                <label for="motif">Motif</label>
+                                <input type="text" name="motif" id="motif" class="form-control" disabled="disabled" />
+                            </div>
+                            <button type="submit" class="btn btn-warning">VALIDER</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %> 
+    </div>
+</div>
+<%- include("../global/footer.ejs") %> 

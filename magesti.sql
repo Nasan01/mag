@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 03 déc. 2021 à 15:32
+-- Généré le : lun. 06 déc. 2021 à 09:51
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 8.0.3
 
@@ -93,7 +93,8 @@ INSERT INTO `client` (`id_c`, `nom_c`, `code_client`, `lienfb_c`, `contact_c`, `
 (49, 'Avo nitsuaf 05', 'CMT-KOMONE-1638368438796', 'new', '0327346792', NULL, '2021-12-01', 'VB00001'),
 (50, 'Avo nitsuaf 000', 'CMT-KOMONE-1638368931850', 'new2', '0340133099', NULL, '2021-12-01', 'VB00001'),
 (51, 'Avo', 'CMT-KOMONE-1638531825604', 'avo', '0340133099', NULL, '2021-12-03', 'VB00001'),
-(52, 'Avo', 'CMT-KOMONE-1638540306573', 'av00', '0327346792', NULL, '2021-12-03', 'VB00001');
+(52, 'Avo', 'CMT-KOMONE-1638540306573', 'av00', '0327346792', NULL, '2021-12-03', 'VB00001'),
+(53, 'nas', 'CMT-KOMONE-1638765934085', 'https://www.facebook.com/profile.php?id=100021432591694	', '0327346792', NULL, '2021-12-06', 'VB00001');
 
 -- --------------------------------------------------------
 
@@ -142,7 +143,18 @@ INSERT INTO `commande` (`id_commande`, `com_livr`, `date_commande`, `quantite_co
 (23, 'com_livr_1638540814427872', '2021-12-03', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638540306573', NULL),
 (24, 'com_livr_1638540940188682', '2021-12-03', NULL, 'VB00001', NULL, 'CMT+KOMONE0', NULL),
 (25, 'com_livr_1638541197609509', '2021-12-03', NULL, 'VB00001', NULL, 'CMT+KOMONE4', NULL),
-(26, 'com_livr_1638541495886610', '2021-12-03', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638345289783', NULL);
+(26, 'com_livr_1638541495886610', '2021-12-03', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638345289783', NULL),
+(27, 'com_livr_1638604321048146', '2021-12-04', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638531825604', NULL),
+(28, 'com_livr_163860992513550', '2021-12-04', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638345289783', NULL),
+(29, 'com_livr_1638610487062410', '2021-12-04', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638540306573', NULL),
+(30, 'com_livr_1638610815761912', '2021-12-04', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638531825604', NULL),
+(31, 'com_livr_1638610952296972', '2021-12-04', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638531825604', NULL),
+(32, 'com_livr_1638714925740156', '2021-12-05', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638365304861', NULL),
+(33, 'com_livr_163871606301996', '2021-12-05', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638345289783', NULL),
+(34, 'com_livr_1638765934238348', '2021-12-06', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638765934085', NULL),
+(35, 'com_livr_1638777347837816', '2021-12-06', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638765934085', NULL),
+(36, 'com_livr_1638777497036657', '2021-12-06', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638531825604', NULL),
+(37, 'com_livr_1638779354325698', '2021-12-06', NULL, 'VB00001', NULL, 'CMT-KOMONE-1638345289783', NULL);
 
 -- --------------------------------------------------------
 
@@ -231,7 +243,28 @@ INSERT INTO `discussion` (`id_discussion`, `sender`, `receiver`, `content`, `sen
 (64, 'VB00001', 'CMT+KOMONE4', 'sfqsdfsdfqsf', '2021-12-03', '17:20:01', 0),
 (65, 'VB00001', 'CMT+KOMONE4', 'sfsdfqsdf', '2021-12-03', '17:20:05', 1),
 (66, 'VB00001', 'CMT+KOMONE4', 'Raha fintinina ny commande-nao dia : <br />produit : DEO-TEST-0, Isany : 5, amin\'ny vidiny : 9835<br><br> Totaliny : 49175 Ariary <br>', '2021-12-03', '17:20:29', 1),
-(67, 'VB00001', 'CMT-KOMONE-1638345289783', 'Raha fintinina ny commande-nao dia : <br />produit : DEO-TEST-0, Isany : 4, amin\'ny vidiny : 9835<br><br> Totaliny : 39340 Ariary <br>', '2021-12-03', '17:25:27', 1);
+(67, 'VB00001', 'CMT-KOMONE-1638345289783', 'Raha fintinina ny commande-nao dia : <br />produit : DEO-TEST-0, Isany : 4, amin\'ny vidiny : 9835<br><br> Totaliny : 39340 Ariary <br>', '2021-12-03', '17:25:27', 1),
+(68, 'VB00001', 'CMT-KOMONE-1638531825604', 'sqfqsdfqsdf', '2021-12-04', '10:52:07', 0),
+(69, 'VB00001', 'CMT-KOMONE-1638531825604', 'sqfqdsf', '2021-12-04', '10:52:12', 1),
+(70, 'VB00001', 'CMT-KOMONE-1638531825604', 'Raha fintinina ny commande-nao dia : <br />produit : DEO-TEST-0, Isany : 3, amin\'ny vidiny : 9835<br><br> Totaliny : 29505 Ariary <br>', '2021-12-04', '10:52:47', 1),
+(71, 'VB00001', 'CMT-KOMONE-1638345289783', 'sgfd', '2021-12-04', '12:25:34', 0),
+(72, 'VB00001', 'CMT-KOMONE-1638345289783', 'gdfgsdfg', '2021-12-04', '12:25:39', 1),
+(73, 'VB00001', 'CMT-KOMONE-1638345289783', 'Raha fintinina ny commande-nao dia : <br />produit : DEO-TEST-0, Isany : 2, amin\'ny vidiny : 9835<br><br> Totaliny : 19670 Ariary <br>', '2021-12-04', '12:26:01', 1),
+(74, 'VB00001', 'CMT-KOMONE-1638540306573', 'Raha fintinina ny commande-nao dia : <br />produit : DEO-TEST-0, Isany : 2, amin\'ny vidiny : 9835<br><br> Totaliny : 19670 Ariary <br>', '2021-12-04', '12:35:16', 1),
+(75, 'VB00001', 'CMT-KOMONE-1638531825604', 'gdhcxh', '2021-12-04', '12:40:19', 0),
+(76, 'VB00001', 'CMT-KOMONE-1638531825604', 'Raha fintinina ny commande-nao dia : <br /><br> Totaliny : 0 Ariary <br>', '2021-12-04', '12:40:46', 1),
+(77, 'VB00001', 'CMT-KOMONE-1638531825604', 'Raha fintinina ny commande-nao dia : <br />produit : DEO-TEST-0, Isany : 2, amin\'ny vidiny : 9835<br><br> Totaliny : 19670 Ariary <br>', '2021-12-04', '12:42:58', 1),
+(78, 'VB00001', 'CMT-KOMONE-1638365304861', 'Raha fintinina ny commande-nao dia : <br />produit : DEO-TEST-0, Isany : 3, amin\'ny vidiny : 9835<br><br> Totaliny : 29505 Ariary <br>', '2021-12-05', '17:35:52', 1),
+(79, 'VB00001', 'CMT-KOMONE-1638345289783', 'Raha fintinina ny commande-nao dia : <br />produit : DEO-TEST-0, Isany : 2, amin\'ny vidiny : 9835<br>produit : DEO-TEST-0, Isany : 4, amin\'ny vidiny : 9835<br><br> Totaliny : 59010 Ariary <br>', '2021-12-05', '17:54:53', 1),
+(80, 'VB00001', 'CMT-KOMONE-1638765934085', 'sdfqdf', '2021-12-06', '07:45:38', 0),
+(81, 'VB00001', 'CMT-KOMONE-1638765934085', 'sdfqdffsdfqds', '2021-12-06', '07:45:44', 1),
+(82, 'VB00001', 'CMT-KOMONE-1638765934085', 'Raha fintinina ny commande-nao dia : <br />produit : DEO-TEST-0, Isany : 3, amin\'ny vidiny : 9835<br><br> Totaliny : 29505 Ariary <br>', '2021-12-06', '07:46:07', 1),
+(83, 'VB00001', 'CMT-KOMONE-1638765934085', 'Raha fintinina ny commande-nao dia : <br />produit : DEO-TEST-0, Isany : 5, amin\'ny vidiny : 9835<br>produit : DEO-TEST-0, Isany : 2, amin\'ny vidiny : 9835<br>produit : DEO-TEST-0, Isany : 3, amin\'ny vidiny : 9835<br><br> Totaliny : 98350 Ariary <br>', '2021-12-06', '10:56:29', 1),
+(84, 'VB00001', 'CMT-KOMONE-1638765934085', 'qsdff', '2021-12-06', '10:56:43', 0),
+(85, 'VB00001', 'CMT-KOMONE-1638531825604', 'sdfdf', '2021-12-06', '10:58:22', 0),
+(86, 'VB00001', 'CMT-KOMONE-1638531825604', 'sdfdf', '2021-12-06', '10:58:24', 0),
+(87, 'VB00001', 'CMT-KOMONE-1638531825604', 'Raha fintinina ny commande-nao dia : <br />produit : DEO-TEST-0, Isany : 1, amin\'ny vidiny : 9835<br><br> Totaliny : 9835 Ariary <br>', '2021-12-06', '10:58:51', 1),
+(88, 'VB00001', 'CMT-KOMONE-1638345289783', 'Raha fintinina ny commande-nao dia : <br />produit : DEO-TEST-0, Isany : 2, amin\'ny vidiny : 9835<br><br> Totaliny : 19670 Ariary <br>', '2021-12-06', '11:29:57', 1);
 
 -- --------------------------------------------------------
 
@@ -267,39 +300,52 @@ CREATE TABLE `livraison` (
   `heure_fin` time DEFAULT NULL,
   `endroit` varchar(255) NOT NULL,
   `remarque` text DEFAULT NULL,
-  `status` varchar(10) NOT NULL
+  `status` varchar(10) NOT NULL,
+  `date_livraison_reporte` date DEFAULT NULL,
+  `motif` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `livraison`
 --
 
-INSERT INTO `livraison` (`id_livraison`, `com_livr`, `date_livraison`, `heure_debut`, `heure_fin`, `endroit`, `remarque`, `status`) VALUES
-(1, '0', '2021-12-06', '12:41:00', '14:41:00', 'Betongolo', 'Enny ary oh!! OK', 'en_attente'),
-(2, 'com_livr_1638531825878', '2021-12-07', '12:45:00', '16:45:00', 'Betongolo', 'zay an', 'en_attente'),
-(3, 'com_livr_1638534970957', '2021-12-10', '15:37:00', '16:37:00', 'Betongolo', 'ts', 'en_attente'),
-(5, 'com_livr_1638535325448', '2021-12-04', '13:42:00', '15:42:00', 'Betongolo', 'sfqdsf', 'en_attente'),
-(6, 'com_livr_1638536203778', '2021-12-04', '14:57:00', '14:57:00', 'Betongolo', 'sfdfsdf', 'en_attente'),
-(7, 'com_livr_1638536787806251', '2021-12-11', '15:07:00', '17:07:00', 'Betongolo', 'sfqdfqdsfqsd', 'en_attente'),
-(8, 'com_livr_1638536928766867', '2021-12-08', '13:09:00', '16:09:00', 'Betongolo', 'qsdQDSd', 'en_attente'),
-(9, 'com_livr_163853712641474', '2021-12-04', '17:12:00', '18:12:00', 'Betongolo', 'hgf', 'en_attente'),
-(10, 'com_livr_1638537322311638', '2021-12-16', '15:15:00', '16:15:00', 'Betongolo', 'sfqdqdf', 'en_attente'),
-(11, 'com_livr_1638537527507682', '2021-12-10', '14:19:00', '17:19:00', 'Betongolo', 'fsdqfqsfqsdf', 'en_attente'),
-(12, 'com_livr_1638537647523257', '2021-12-09', '13:21:00', '12:21:00', 'Betongolo', 'fkhjb', 'en_attente'),
-(13, 'com_livr_163853786441639', '2021-12-09', '15:24:00', '16:24:00', 'Betongolo', 'fqsdfqsfq', 'en_attente'),
-(14, 'com_livr_1638538434529239', '2021-12-03', '14:34:00', '15:34:00', 'Betongolo', 'sdfdsqfqsdfqdsf', 'en_attente'),
-(15, 'com_livr_1638538999945185', '2021-12-06', '13:43:00', '16:43:00', 'Betongolo', 'fsqfsqdf', 'en_attente'),
-(16, 'com_livr_1638539102273207', '2021-12-06', '13:45:00', '15:45:00', 'Betongolo', 'sdfsqfdqsf', 'en_attente'),
-(17, 'com_livr_1638539282246220', '2021-12-10', '13:48:00', '16:48:00', 'Betongolo', 'hjhfgjfkjfkjgfjk', 'en_attente'),
-(18, 'com_livr_1638539425611809', '2021-12-10', '14:50:00', '16:50:00', 'Betongolo', 'ydjhgch', 'en_attente'),
-(19, 'com_livr_163854010950983', '2021-12-04', '16:02:00', '16:11:00', 'Betongolo', 'dfs', 'en_attente'),
-(20, 'com_livr_1638540306713826', '2021-12-04', '16:05:00', '17:05:00', 'Betongolo', 'qgsdfsg', 'en_attente'),
-(21, 'com_livr_163854042767234', '2021-12-17', '11:07:00', '17:07:00', 'Betongolo', 'wxcXCsdgfdg', 'en_attente'),
-(22, 'com_livr_1638540625510587', '2021-12-10', '14:10:00', '17:10:00', 'Betongolo', '', 'en_attente'),
-(23, 'com_livr_1638540814427872', '2021-12-04', '16:13:00', '17:13:00', 'Betongolo', 'qsfqsf', 'en_attente'),
-(24, 'com_livr_1638540940188682', '2021-12-03', '17:16:00', '18:16:00', 'Betongolo', 'sgfdg', 'en_attente'),
-(25, 'com_livr_1638541197609509', '2021-12-04', '13:20:00', '15:20:00', 'Betongolo', 'dgdsfgsd', 'en_attente'),
-(26, 'com_livr_1638541495886610', '2021-12-03', '16:25:00', '17:25:00', 'Besarety', 'fsdqfqsdf', 'en_attente');
+INSERT INTO `livraison` (`id_livraison`, `com_livr`, `date_livraison`, `heure_debut`, `heure_fin`, `endroit`, `remarque`, `status`, `date_livraison_reporte`, `motif`) VALUES
+(1, '0', '2021-12-06', '12:41:00', '14:41:00', 'Betongolo', 'Enny ary oh!! OK', 'livre', NULL, NULL),
+(2, 'com_livr_1638531825878', '2021-12-07', '12:45:00', '16:45:00', 'Betongolo', 'zay an', 'en_attente', NULL, NULL),
+(3, 'com_livr_1638534970957', '2021-12-10', '15:37:00', '16:37:00', 'Betongolo', 'ts', 'en_attente', NULL, NULL),
+(5, 'com_livr_1638535325448', '2021-12-04', '13:42:00', '15:42:00', 'Betongolo', 'sfqdsf', 'en_attente', NULL, NULL),
+(6, 'com_livr_1638536203778', '2021-12-04', '14:57:00', '14:57:00', 'Betongolo', 'sfdfsdf', 'en_attente', NULL, NULL),
+(7, 'com_livr_1638536787806251', '2021-12-11', '15:07:00', '17:07:00', 'Betongolo', 'sfqdfqdsfqsd', 'en_attente', NULL, NULL),
+(8, 'com_livr_1638536928766867', '2021-12-08', '13:09:00', '16:09:00', 'Betongolo', 'qsdQDSd', 'en_attente', NULL, NULL),
+(9, 'com_livr_163853712641474', '2021-12-04', '17:12:00', '18:12:00', 'Betongolo', 'hgf', 'en_attente', NULL, NULL),
+(10, 'com_livr_1638537322311638', '2021-12-16', '15:15:00', '16:15:00', 'Betongolo', 'sfqdqdf', 'en_attente', NULL, NULL),
+(11, 'com_livr_1638537527507682', '2021-12-10', '14:19:00', '17:19:00', 'Betongolo', 'fsdqfqsfqsdf', 'en_attente', NULL, NULL),
+(12, 'com_livr_1638537647523257', '2021-12-09', '13:21:00', '12:21:00', 'Betongolo', 'fkhjb', 'en_attente', NULL, NULL),
+(13, 'com_livr_163853786441639', '2021-12-09', '15:24:00', '16:24:00', 'Betongolo', 'fqsdfqsfq', 'en_attente', NULL, NULL),
+(14, 'com_livr_1638538434529239', '2021-12-03', '14:34:00', '15:34:00', 'Betongolo', 'sdfdsqfqsdfqdsf', 'en_attente', NULL, NULL),
+(15, 'com_livr_1638538999945185', '2021-12-06', '13:43:00', '16:43:00', 'Betongolo', 'fsqfsqdf', 'livre', NULL, NULL),
+(16, 'com_livr_1638539102273207', '2021-12-06', '13:45:00', '15:45:00', 'Betongolo', 'sdfsqfdqsf', 'reporte', '2021-12-07', NULL),
+(17, 'com_livr_1638539282246220', '2021-12-10', '13:48:00', '16:48:00', 'Betongolo', 'hjhfgjfkjfkjgfjk', 'en_attente', NULL, NULL),
+(18, 'com_livr_1638539425611809', '2021-12-10', '14:50:00', '16:50:00', 'Betongolo', 'ydjhgch', 'en_attente', NULL, NULL),
+(19, 'com_livr_163854010950983', '2021-12-04', '16:02:00', '16:11:00', 'Betongolo', 'dfs', 'en_attente', NULL, NULL),
+(20, 'com_livr_1638540306713826', '2021-12-04', '16:05:00', '17:05:00', 'Betongolo', 'qgsdfsg', 'en_attente', NULL, NULL),
+(21, 'com_livr_163854042767234', '2021-12-17', '11:07:00', '17:07:00', 'Betongolo', 'wxcXCsdgfdg', 'en_attente', NULL, NULL),
+(22, 'com_livr_1638540625510587', '2021-12-10', '14:10:00', '17:10:00', 'Betongolo', '', 'en_attente', NULL, NULL),
+(23, 'com_livr_1638540814427872', '2021-12-04', '16:13:00', '17:13:00', 'Betongolo', 'qsfqsf', 'en_attente', NULL, NULL),
+(24, 'com_livr_1638540940188682', '2021-12-03', '17:16:00', '18:16:00', 'Betongolo', 'sgfdg', 'en_attente', NULL, NULL),
+(25, 'com_livr_1638541197609509', '2021-12-04', '13:20:00', '15:20:00', 'Betongolo', 'dgdsfgsd', 'en_attente', NULL, NULL),
+(26, 'com_livr_1638541495886610', '2021-12-03', '16:25:00', '17:25:00', 'Besarety', 'fsdqfqsdf', 'en_attente', NULL, NULL),
+(27, 'com_livr_1638604321048146', '2021-12-06', '08:52:00', '11:52:00', 'Analakely', 'sdfqs', 'annule', NULL, NULL),
+(28, 'com_livr_163860992513550', '2021-12-10', '11:25:00', '13:25:00', 'Analakely', 'sdqfqsfd', 'en_attente', NULL, NULL),
+(29, 'com_livr_1638610487062410', '2021-12-09', '08:35:00', '12:35:00', 'Analakely', 'vbb,nj', 'en_attente', NULL, NULL),
+(30, 'com_livr_1638610815761912', '2021-12-07', '08:40:00', '13:40:00', 'Analakely', 'gswwsgfgf', 'en_attente', NULL, NULL),
+(31, 'com_livr_1638610952296972', '2021-12-11', '10:42:00', '12:42:00', 'Analakely', '', 'en_attente', NULL, NULL),
+(32, 'com_livr_1638714925740156', '2021-12-05', '14:35:00', '18:35:00', 'Analakely', 'gqfgq', 'en_attente', NULL, NULL),
+(33, 'com_livr_163871606301996', '2021-12-05', '16:54:00', '19:54:00', 'Besarety', 'fqsdfqdsfdsf', 'en_attente', NULL, NULL),
+(34, 'com_livr_1638765934238348', '2021-12-06', '06:45:00', '09:46:00', 'test', 'sfqqf', 'livre', NULL, NULL),
+(35, 'com_livr_1638777347837816', '2021-12-06', '08:56:00', '13:56:00', 'ato antrano', 'tsisy', 'annule', NULL, 'Tsy ampy tampoka ny vola'),
+(36, 'com_livr_1638777497036657', '2021-12-06', '07:58:00', '11:58:00', 'ato antrano', 'tssfs', 'reporte', '2021-12-07', 'Nisy olana kely'),
+(37, 'com_livr_1638779354325698', '2021-12-06', '10:29:00', '12:29:00', 'ato antrano', 'sfd', 'livre', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -323,7 +369,8 @@ CREATE TABLE `personnel` (
 --
 
 INSERT INTO `personnel` (`id_p`, `matricule_p`, `nom_p`, `prenom_p`, `mdp_p`, `email`, `sexe`, `id_fonction`) VALUES
-(1, 'VB00001', 'RAKOTO', 'Diane', 'diane00', NULL, 'femme', NULL);
+(1, 'VB00001', 'RAKOTO', 'Diane', 'diane00', NULL, 'femme', 1),
+(2, 'SC00001', 'Rakotosoa', 'Melanie', 'melanie00', NULL, 'femme', 2);
 
 -- --------------------------------------------------------
 
@@ -451,7 +498,20 @@ INSERT INTO `produit_commande` (`id`, `code_produit`, `com_livr`, `quantite`) VA
 (34, 'PRO028', 'com_livr_1638540814427872', 2),
 (35, 'PRO028', 'com_livr_1638540940188682', 4),
 (36, 'PRO028', 'com_livr_1638541197609509', 5),
-(37, 'PRO028', 'com_livr_1638541495886610', 4);
+(37, 'PRO028', 'com_livr_1638541495886610', 4),
+(38, 'PRO028', 'com_livr_1638604321048146', 3),
+(39, 'PRO028', 'com_livr_163860992513550', 2),
+(40, 'PRO028', 'com_livr_1638610487062410', 2),
+(41, 'PRO028', 'com_livr_1638610952296972', 2),
+(42, 'PRO028', 'com_livr_1638714925740156', 3),
+(43, 'PRO028', 'com_livr_163871606301996', 2),
+(44, 'PRO028', 'com_livr_163871606301996', 4),
+(45, 'PRO028', 'com_livr_1638765934238348', 3),
+(46, 'PRO028', 'com_livr_1638777347837816', 5),
+(47, 'PRO028', 'com_livr_1638777347837816', 2),
+(48, 'PRO028', 'com_livr_1638777347837816', 3),
+(49, 'PRO028', 'com_livr_1638777497036657', 1),
+(50, 'PRO028', 'com_livr_1638779354325698', 2);
 
 --
 -- Index pour les tables déchargées
@@ -515,19 +575,19 @@ ALTER TABLE `produit_commande`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_commande` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT pour la table `discussion`
 --
 ALTER TABLE `discussion`
-  MODIFY `id_discussion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id_discussion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT pour la table `fonction`
@@ -539,13 +599,13 @@ ALTER TABLE `fonction`
 -- AUTO_INCREMENT pour la table `livraison`
 --
 ALTER TABLE `livraison`
-  MODIFY `id_livraison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_livraison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT pour la table `personnel`
 --
 ALTER TABLE `personnel`
-  MODIFY `id_p` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_p` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `produit`
@@ -557,7 +617,7 @@ ALTER TABLE `produit`
 -- AUTO_INCREMENT pour la table `produit_commande`
 --
 ALTER TABLE `produit_commande`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

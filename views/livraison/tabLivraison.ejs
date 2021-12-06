@@ -1,26 +1,33 @@
-<table class="table table-striped mt-4">
-    <thead class="<%= color[0] %>  text-white">
-        <th>Nom</th>
-        <th>Contact</th>
-        <th>Livrer à</th>
-        <th>Produit</th>
-        <th>Quantité</th>
-        <th></th>
-    </thead>
-    <tbody>
-        <% livraisons.map((l) => { %>
-            <tr>
-                <td><%= l.nom_c %> </td>
-                <td><%= l.contact_c %> </td>
-                <td><%= l.endroit %> </td>
-                <td><%= l.code_produit %></td>
-                <td><%= l.quantite %> </td>
-                <% if(status === "en_attente"){ %> 
-                    <td><a href="#" class="btn <%= color[1] %> ">Traiter</a></td>
-                <% } else { %>
-                    <td><a href="#" class="btn <%= color[1] %> "><i class="fa fa-info"></i></a></td>
-                <% } %>  
-            </tr>
-        <% }) %>  
-    </tbody>
-</table>
+<div class="card mt-4">
+    <div class="card-header">
+        <h3>Livraisons par status</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped mt-4">
+            <thead class="<%= color[0] %>  text-white">
+                <th>Nom</th>
+                <th>Contact</th>
+                <th>Livrer à</th>
+                <th>Produit</th>
+                <th>Quantité</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <% livraisons.map((l) => { %>
+                    <tr>
+                        <td><%= l.nom_c %> </td>
+                        <td><%= l.contact_c %> </td>
+                        <td><%= l.endroit %> </td>
+                        <td><%= l.code_produit %></td>
+                        <td><%= l.quantite %> </td>
+                        <% if(status === "en_attente"){ %> 
+                            <td><a href="/livraisons/getOne/<%= l.id_livraison %>/<%= l.com_livr %> " class="btn <%= color[1] %> ">Traiter</a></td>
+                        <% } else { %>
+                            <td><a href="/livraisons/getOne/<%= l.id_livraison %>/<%= l.com_livr %> " class="btn <%= color[1] %> "><i class="fa fa-info"></i></a></td>
+                        <% } %>  
+                    </tr>
+                <% }) %>  
+            </tbody>
+        </table>
+    </div>
+</div>

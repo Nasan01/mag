@@ -41,8 +41,8 @@ const get_view_livraison = async (req, res) => {
             [date_now, "livre"]
         );
         const en_attente = await connectionPromise.execute(
-            "SELECT produit_commande.quantite, produit.code_produit, produit.prix FROM livraison JOIN commande ON commande.com_livr = livraison.com_livr JOIN produit_commande ON produit_commande.com_livr = commande.com_livr JOIN produit ON produit.code_produit = produit_commande.code_produit WHERE livraison.date_livraison = ? AND livraison.status = ?",
-            [date_now, "en_attente"]
+            "SELECT produit_commande.quantite, produit.code_produit, produit.prix FROM livraison JOIN commande ON commande.com_livr = livraison.com_livr JOIN produit_commande ON produit_commande.com_livr = commande.com_livr JOIN produit ON produit.code_produit = produit_commande.code_produit WHERE (livraison.date_livraison = ? AND livraison.status = ?) OR (livraison.date_livraison_reporte = ? AND livraison.status = 'reporte')",
+            [date_now, "en_attente", date_now]
         );
         const reporte = await connectionPromise.execute(
             "SELECT produit_commande.quantite, produit.code_produit, produit.prix FROM livraison JOIN commande ON commande.com_livr = livraison.com_livr JOIN produit_commande ON produit_commande.com_livr = commande.com_livr JOIN produit ON produit.code_produit = produit_commande.code_produit WHERE livraison.date_livraison = ? AND livraison.status = ?",
@@ -123,8 +123,63 @@ const list_post_livraison = (req, res) => {
     });
 }
 
+const getOneLivraison = (req, res) => {
+    const {
+        id_livraison,
+        com_livr
+    } = req.params;
+    const id_find = parseInt(id_livraison);
+    let totalCa = 0;
+    if(req.session.matricule) {
+        const menu_link = menu(req.session.matricule);
+        livraisonModel.findLivraisonById(id_find, function (err, livraisons) {
+            if(err) throw err;
+            livraisons.forEach((l) => {
+                totalCa += (l.prix * l.quantite);
+            });
+            const statusCheck = (livraisons[0].status == "en_attente") ? "en_attente" : "" ;
+            res.render("livraison/traitement", {
+                title: "livraisons",
+                matricule: req.session.matricule,
+                menu: menu_link,
+                livraisons: livraisons,
+                totalCa: totalCa,
+                statusCheck: statusCheck
+            });
+        })
+    } else {
+        res.redirect("/personnel/login")
+    }
+}
+
+const updateStatusLivraison = (req, res) => {
+    const {
+        id_livraison,
+        status,
+        date_livraison_reporte,
+        motif
+    } = req.body;
+    let id_up = parseInt(id_livraison);
+    if(!date_livraison_reporte){
+        date_livraison_reporte_up = null;
+    } else {
+        date_livraison_reporte_up = date_livraison_reporte;
+    }
+    if(!motif){
+        motif_up = null;
+    } else {
+        motif_up = motif;
+    }
+    livraisonModel.updateStatusLivraison(id_up, status, motif_up, date_livraison_reporte_up, function (err, livraison) {
+        if(err) throw err;
+        res.redirect("/livraisons"); 
+    });
+}
+
 module.exports = {
     addLivraison,
     get_view_livraison,
-    list_post_livraison
+    list_post_livraison,
+    getOneLivraison,
+    updateStatusLivraison
 }
