@@ -20,6 +20,7 @@ const discussionRoute = require("./routes/discussionRoute");
 const commandeRoute = require("./routes/commandeRoute");
 const livraisonRoute = require("./routes/livraisonRoute");
 const etatVenteRoute = require("./routes/etatVenteRoute");
+const urgenceRoute = require("./routes/urgenceRoute");
 const { menu } = require("./config/helper");
 
 const app = express();
@@ -58,6 +59,7 @@ app.use("/discussions", discussionRoute);
 app.use("/commandes", commandeRoute);
 app.use("/livraisons", livraisonRoute);
 app.use("/etatVente", etatVenteRoute);
+app.use("/urgence", urgenceRoute);
 
 app.get("/", function(req, res) {
     if(req.session.loggedin){

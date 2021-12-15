@@ -1,0 +1,61 @@
+<%- include("../global/header.ejs") %> 
+<div class="row">
+    <div class="col">
+        <h1>Urgence</h1>
+        <% if(matricule[0]+matricule[1] === "VB") {%>
+            <div class="row">
+                <div class="col m-auto">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Envoye d'une urgence</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-8 m-auto">
+                                    <form action="/urgence/addUrgence" method="post">
+                                        <div class="form-group">
+                                            <label for="code_urgence">Code urgence : </label>
+                                            <select name="code_urgence" class="form-control" id="code_urgence">
+                                                <option value="URG001">Urgence niveau 1</option>
+                                                <option value="URG010">Urgence niveau 2</option>
+                                                <option value="URG100">Urgence niveau 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="contenu">Contenu : </label>
+                                            <textarea name="contenu" class="form-control" id="contenu"  rows="4"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-danger">Envoyer</button>
+                                    </form>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } else { %>
+            <div class="row">
+                <div class="col-6">
+                    <div class="card bg-danger urg text-white" id="en_cours">
+                        <div class="card-body">
+                            <h2>En cours</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card bg-success urg text-white" id="traiter">
+                        <div class="card-body">
+                            <h2>Traiter</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" id="urgence">
+
+                </div>
+            </div>
+        <% } %>   
+    </div>
+</div>
+<%- include("../global/footer.ejs") %> 

@@ -41,4 +41,14 @@ $(document).ready(function () {
             $("#motif").removeAttr("disabled");
         }
     });
+    $(".urg").on("click", function (e) {
+        var clk = $(this);
+        var status = clk.attr("id");
+
+        $.post("/urgence/getUrgence", {status:status}, function (data) {
+            if(data){
+                $("#urgence").empty().append(data);
+            } 
+        });
+    });
 });

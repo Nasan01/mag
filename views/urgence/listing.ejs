@@ -1,0 +1,35 @@
+<% let couleur = status === "en_cours" ? "bg-danger" : "bg-success" %> 
+<div class="card m-2">
+    <div class="card-header <%= couleur %> text-white">
+        <h3>Listes des urgences <%= status %> </h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Contenu</th>
+                    <th>Envoyer le</th>
+                    <th>à</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% urgences.map((u) => { %>
+                    <% let test = parseInt(new Date(u.send_at).getMonth()) + 1 %> 
+                    <tr>
+                        <td><%= u.code_urgence %> </td>
+                        <td><%= u.contenu_urgence %> </td>
+                        <td><%= new Date(u.send_at).getDate() + "-" +test+ "-" + new Date(u.send_at).getFullYear() %></td>
+                        <td><%= u.send_time_at %> </td>
+                        <% if(status === "en_cours") { %>
+                            <td><a href="/urgence/traite/<%= u.id_urgence %>" id="<%= u.id_urgence %>" class="btn btn-danger urgF">Fini</a></td>
+                        <% } else {%>
+                            <td><i class="fa fa-nike"></i></td>
+                        <% } %> 
+                    </tr>
+                <% }) %>  
+            </tbody>
+        </table>
+    </div>
+</div>
