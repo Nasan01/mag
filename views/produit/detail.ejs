@@ -1,0 +1,48 @@
+<%- include("../global/header.ejs") %> 
+<div class="row">
+    <div class="col">
+        <h2>Detail du produit <%= produits[0].nom_produit %> </h2>
+        <div class="row m-3">
+            <div class="col">
+                <div class="card bg-secondary p-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <p class="text-right"><img class="img-thumbnail" width="160" height="160" src="/images/upload/produit/<%= produits[0].photo_produit %> " alt="photo produit"></p>
+                            </div>
+                            <div class="col-6">
+                                <b>Code produit</b> : <%= produits[0].code_produit %><br>
+                                <b>Prix</b> : <%= produits[0].prix %> Ariary<br>
+                                <b>Famille</b> : <%= produits[0].famille %> <br>
+                                <b>Groupe</b> : <%= produits[0].groupe %> <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 m-auto">
+                <ul class="nav nav-tabs test">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#description">Description</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#modeEmploi">Mode d'emploi</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="description" class="container tab-pane active"><br>
+                        <h3>Description</h3>
+                        <p><%= produits[0].description_produit %> </p>
+                    </div>
+                    <div id="modeEmploi" class="container tab-pane fade"><br>
+                        <h3>Mode d'emploi</h3>
+                        <p><%= produits[0].moded_emploi_produit %> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include("../global/footer.ejs") %> 

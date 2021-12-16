@@ -6,6 +6,7 @@
             <div class="form-group">
                 <input type="text" id="filterProduit" class="form-control" placeholder="Filtrer le tableau"/>
             </div>
+            <p class="text-right"><button class="btn btn-warning" data-toggle="modal" data-target="#addNew" type="button">Ajouter un nouveau produit</button></p>
             <table class="table table-striped">
                 <thead class="<%= matricule[0]+matricule[1] === "VB" ? "bg-primary" : "bg-warning" %> text-white">
                     <th>id</th>
@@ -23,7 +24,7 @@
                             <td><%= produit.code_produit %> </td>
                             <td class="text-center"><%= produit.prix %> </td>
                             <td><%= produit.description_produit %> </td>
-                            <td><a href="#" class="btn <%= matricule[0]+matricule[1] === "VB" ? "btn-primary" : "btn-warning" %>"><i class="fa fa-info"></i></a></td>
+                            <td><a href="/produits/detail/<%= produit.id_produit %> " class="btn <%= matricule[0]+matricule[1] === "VB" ? "btn-primary" : "btn-warning" %>"><i class="fa fa-info"></i></a></td>
                         </tr>
                     <% }) %>  
                 </tbody>
@@ -43,6 +44,74 @@
         <div class="row">
             <div class="col-6"></div>
             <div class="col-6"></div>
+        </div>
+        <div class="modal fade" id="addNew">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning text-white">
+                        <h4 class="modal-title">Ajout d'un nouveau produit</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-8 m-auto">
+                                <form action="/produits/add" method="post" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="code_produit">Code produit</label>
+                                                <input type="text" class="form-control" name="code_produit" id="code_produit" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="nom_produit">Nom produit</label>
+                                                <input type="text" class="form-control" name="nom_produit" id="nom_produit" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="prix">prix (Ariary)</label>
+                                                <input type="number" value="0" class="form-control" name="prix" id="prix" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="id_categorie">Catégorie</label>
+                                            <select class="form-control" name="id_categorie" id="id_categorie">
+                                                <option value="1">LESSIVE</option>
+                                                <option value="2">BEAUTE</option>
+                                                <option value="3">DEO & PARFUM</option>
+                                                <option value="4">SOINS CAPILLAIRE</option>
+                                                <option value="5">HYGIENE BUCO-DENTAIRE</option>
+                                                <option value="6">AUTRES</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description_produit">Description</label>
+                                        <textarea name="description_produit" id="description_produit" rows="2" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="moded_emploi_produit">Mode d'emploi</label>
+                                        <textarea name="moded_emploi_produit" id="moded_emploi_produit" rows="2" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="photo_produit">photo produit</label>
+                                        <input type="file" class="form-control-file" name="photo_produit" id="photo_produit" accept="image/*"/>
+                                    </div>
+                                    <button type="submit" class="text-right btn btn-success">Ajouter</button>
+                                    <button type="reset" class="text-right btn btn-secondary">Annuler</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                    </div>
+              </div>
+            </div>
         </div>
     </div>
 </div>

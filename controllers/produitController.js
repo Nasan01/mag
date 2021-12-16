@@ -27,6 +27,50 @@ const get_all_produit = async (req, res) => {
     }
 }
 
+const getOneProduit = (req, res) => {
+    const { id } = req.params;
+    let id_produit = parseInt(id);
+    if(req.session.matricule) {
+        const menu_link = menu(req.session.matricule);
+        produitModel.findOneProduit(id_produit, function (err, produits) {
+            if(err) throw err;
+            res.render("produit/detail", {
+                title: "produits",
+                matricule: req.session.matricule,
+                menu: menu_link,
+                produits: produits
+            }); 
+        });
+    } else {
+        res.redirect("/personnel/login");
+    }
+}
+
+const addNewProduit = (req, res, next) => {
+    const {
+        code_produit,
+        nom_produit,
+        prix,
+        description_produit,
+        moded_emploi_produit,
+        id_categorie
+    } = req.body;
+    let id_convert = parseInt(id_categorie);
+    produitModel.addProduit({
+        code_produit,
+        nom_produit,
+        prix,
+        description_produit,
+        moded_emploi_produit,
+        photo_produit: req.file.filename,
+        id_categorie: id_convert
+    }, function (err, produit) {
+        if(err) throw err;
+        req.flash("success", "Produits bien ajouter!!!");
+        res.redirect("/produits/0");
+    });
+}
+
 const automateAddingProduit = (req, res) => {
     for(let i = 0; i < 50; i++) {
         let co = Math.round(Math.random()*100);
@@ -47,5 +91,7 @@ const automateAddingProduit = (req, res) => {
 
 module.exports = {
     get_all_produit,
-    automateAddingProduit
+    automateAddingProduit,
+    getOneProduit,
+    addNewProduit
 }

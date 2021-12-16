@@ -22,7 +22,19 @@ const addProduit = (produit, cb) => {
     );
 }
 
+const findOneProduit = (id, cb) => {
+    connection.query(
+        "SELECT * FROM produit JOIN categorie ON categorie.Id = produit.id_categorie WHERE produit.id_produit = ?",
+        [id],
+        function (err, res) {
+            if(err) throw err;
+            cb(null, res);
+        }
+    );
+}
+
 module.exports = {
     findWithLimit,
-    addProduit
+    addProduit,
+    findOneProduit
 }
