@@ -13,7 +13,7 @@ const menu = (matricule) => {
             {link: "/clients/0", content: "Clients", icons: "fa fa-users", active: "clients"},
             {link: "/livraisons", content: "Tache", icons: "fa fa-car", active: "livraisons"},
             {link: "/produits/0", content: "Produits", icons: "fa fa-cubes", active: "produits"},
-            {link: "/etatLivraison", content: "Etat de Livraison", icons: "fa fa-truck", active: "money"},
+            {link: "/livraisons/etatLivraison", content: "Etat de Livraison", icons: "fa fa-truck", active: "money"},
             {link: "/urgence", content: "Urgence", icons: "fa fa-warning", active: "urgence"},
         ];
         return matricule[0] + matricule[1] === "VB" ? vbMenu : scMenu;

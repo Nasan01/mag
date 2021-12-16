@@ -176,10 +176,38 @@ const updateStatusLivraison = (req, res) => {
     });
 }
 
+const etatLivraison = async (req, res) => {
+    const menu_link = menu(req.session.matricule);
+    let month = parseInt(new Date().getMonth()) + 1;
+    const date_now = new Date().getFullYear() + "-" + month + "-" + new Date().getDate();
+    let caLivre = 0, pLivre = 0;
+    const connectionPromise = await mysqlPromise.createConnection({host:"localhost", user:"root", password:"", database: "magesti"});
+    const livre = await connectionPromise.execute(
+        "SELECT produit_commande.quantite, produit.code_produit, produit.prix FROM livraison JOIN commande ON commande.com_livr = livraison.com_livr JOIN produit_commande ON produit_commande.com_livr = commande.com_livr JOIN produit ON produit.code_produit = produit_commande.code_produit WHERE livraison.date_livraison = ? AND livraison.status = ?",
+        [date_now, "livre"]
+    );
+    livre[0].forEach((l) => {
+        caLivre += (l.quantite * l.prix);
+        pLivre += l.quantite
+    });
+    if(req.session.matricule) {
+        res.render("livraison/etatLivraison", {
+            title: "money",
+            menu: menu_link,
+            date_du_jour: date_now,
+            matricule: req.session.matricule,
+            livre: [caLivre, pLivre]
+        });
+    } else {
+        res.redirect("/personnel/login");
+    }
+}
+
 module.exports = {
     addLivraison,
     get_view_livraison,
     list_post_livraison,
     getOneLivraison,
-    updateStatusLivraison
+    updateStatusLivraison,
+    etatLivraison
 }
